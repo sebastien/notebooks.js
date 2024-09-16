@@ -1,0 +1,3 @@
+[submodule "deps/observable-export"]
+	path = deps/observable-export
+	url = git@github.com:sebastien/observable-export.git
