@@ -6,7 +6,9 @@ OBS=env PYTHONPATH=$(realpath deps)/observable-export/src/py:$(PYTHONPATH) $(rea
 dist: $(DIST_ALL)
 	@
 
-src/js/%.js:
+.PRECIOUS: %.js
+
+src/js/%.js: .FORCE
 	@mkdir -p $(dir $@)
 	$(OBS) @sebastien/$* --named -o "$@"
 
@@ -14,3 +16,6 @@ src/js/%.js:
 dist/js/%.js: src/js/%.js
 	@mkdir -p $(dir $@)
 	esbuild --minify --outfile="$@" "$<"
+
+.FORCE:
+# EOF

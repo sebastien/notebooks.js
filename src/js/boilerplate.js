@@ -599,11 +599,6 @@ export const defer = (
 (effector, delay=0, guard=undefined) => delay ? window.setTimeout(guard ? _ => (guard() && effector(effector)) : effector, delay) : effector(effector)
 );
 
-// @cell('now', [])
-export const now = (
-window.performance.now
-);
-
 // @cell('sprintf', [])
 export const sprintf = (
 (...args)=>{
